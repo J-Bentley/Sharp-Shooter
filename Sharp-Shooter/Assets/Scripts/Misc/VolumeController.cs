@@ -11,5 +11,5 @@ public class VolumeController : MonoBehaviour {
     public void SetSFXVolume(float soundLevel) {
         masterMixer.SetFloat ("SFXVolume", soundLevel);
     }
-    // max value 0, min value -80
+    // min value -80, max value 0
 }

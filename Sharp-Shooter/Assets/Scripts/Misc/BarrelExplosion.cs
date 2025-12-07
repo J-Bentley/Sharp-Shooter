@@ -38,6 +38,8 @@ public class BarrelExplosion : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
         HashSet<object> damaged = new HashSet<object>();
 
+        // Barrel explosion: Damages player, enemy and crates. Does not damage other barrels.
+
         foreach (Collider hitCollider in hitColliders)
         {
 

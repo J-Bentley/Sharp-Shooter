@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3261085960211000500}
   - component: {fileID: 767093179780634750}
   m_Layer: 8
-  m_Name: Crate_05_2_Glow
+  m_Name: Ammo Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7988965071100754554}
   - component: {fileID: 1523125162058061560}
-  - component: {fileID: 4424308884596699596}
+  - component: {fileID: 5900392203010643713}
   m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
@@ -316,7 +316,7 @@ Transform:
   m_GameObject: {fileID: 7190812036601067169}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.301, z: 0}
+  m_LocalPosition: {x: 0, y: 0.216, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -333,13 +333,13 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.42352945, g: 1, b: 0.08235294, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -387,7 +387,7 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &4424308884596699596
+--- !u!114 &5900392203010643713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

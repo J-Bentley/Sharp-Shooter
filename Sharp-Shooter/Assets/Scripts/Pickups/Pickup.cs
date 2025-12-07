@@ -12,13 +12,23 @@ public abstract class Pickup : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
     }
 
+    // TODO: do this betterer
+
     void OnTriggerEnter(Collider other) {
         if (other.CompareTag(PLAYER_STRING)) {
             
+            // Stops Trigger from being ran more than once
             this.GetComponent<Collider>().enabled = false;
 
+            //Desroys the model and point light of the pickup but keeps the parent alive where audio source is
+            Transform firstChild = transform.GetChild(0);
+            Destroy(firstChild.gameObject);
+
+            // Gives ammo
             ActiveWeapon activeWeapon = other.GetComponentInChildren<ActiveWeapon>();
             OnPickup(activeWeapon);
+
+            // Play audio source and destroy parent when audio is done
             audioSource.Play();
             Destroy(gameObject, audioSource.clip.length);
         }

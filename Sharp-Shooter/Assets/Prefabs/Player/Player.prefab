@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ea129959e55744b96624345802e12f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swayMultiplier: 7
+  swayMultiplier: 5
   swaySmoothing: 2
 --- !u!1 &4396783906645054535
 GameObject:
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 5430739552204956692}
-  tiltAngle: 3
+  tiltAngle: 1.5
   tiltSpeed: 5
   returnSpeed: 5
 --- !u!114 &7097492925934312348

@@ -40,13 +40,13 @@ public class Weapon : MonoBehaviour {
             ExplodingBarrel explodingBarrel = hit.collider.gameObject.GetComponent<ExplodingBarrel>();
             explodingBarrel?.TakeDamage(weaponSO.Damage);
 
+            Vector3 offsetPosition = hit.point + hit.normal * 0.001f; //stops z-fighting
+
             if (!enemyHealth)
             {
-                Vector3 offsetPosition = hit.point + hit.normal * 0.001f; //stops z-fighting
                 ParticleSystem bulletHole = Instantiate(bulletHoleVFX, offsetPosition, normalizedRotation);
                 bulletHole.transform.SetParent(hit.transform, worldPositionStays: true);
             }
-
         }
     }
 }

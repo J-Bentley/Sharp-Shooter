@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void QuitButton() {
-        Debug.Log("Cannot quit in the editor but good try");
+        Debug.Log("Cannot quit in the editor");
         Application.Quit();
     }
 }
