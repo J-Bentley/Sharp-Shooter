@@ -26,14 +26,17 @@ public class Projectile : MonoBehaviour {
 
 
     void OnTriggerEnter(Collider other) {
-        if (hasHit || ignoredTags.Contains(other.tag)) return;
+        
+        // stops duplicate triggers (could also use a hashset) and ignores given objects
+        if (hasHit || ignoredTags.Contains(other.tag)) return; 
+
         hasHit = true;
 
         Instantiate(projectileHitVFX, transform.position, Quaternion.identity);
 
         PlayerHealth playerHealth = other.GetComponentInParent<PlayerHealth>();
         EnemyHealth enemyHealth = other.GetComponentInParent<EnemyHealth>();
-        //ExplodingBarrel explodingBarrel = other.GetComponent<ExplodingBarrel>(); Turrets shouldn't damage barrels
+        //ExplodingBarrel explodingBarrel = other.GetComponent<ExplodingBarrel>(); -- Turrets shouldn't damage barrels (?)
         DestroyableObject destroyableObject = other.GetComponent<DestroyableObject>();
 
         enemyHealth?.TakeDamage(damage);

@@ -6,6 +6,8 @@ public class NewMonoBehaviourScript : MonoBehaviour {
 
     FirstPersonController player;
     NavMeshAgent agent;
+    bool isDead = false;
+    float repathTimer;
 
     const string PLAYER_STRING = "Player";
 
@@ -18,12 +20,22 @@ public class NewMonoBehaviourScript : MonoBehaviour {
     }
 
     void Update() {
+
         if (!player) return;
-        agent.SetDestination(player.transform.position);
+
+        repathTimer -=Time.deltaTime;
+        
+        if (repathTimer <= 0f) {
+            agent.SetDestination(player.transform.position);
+            repathTimer = 0.2f; // 5 times per second
+        }
     }
 
     void OnTriggerEnter(Collider other) {
+        if(isDead) return;
+
         if(other.CompareTag(PLAYER_STRING)) {
+            isDead = true;
             EnemyHealth enemyHealth = GetComponent<EnemyHealth>();
             enemyHealth.SelfDestruct();
         }
