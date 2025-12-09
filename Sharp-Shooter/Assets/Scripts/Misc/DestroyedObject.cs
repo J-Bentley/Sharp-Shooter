@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DestroyPeices : MonoBehaviour
 {
-    [SerializeField] float timer;
+    [SerializeField] float destroyPeicesTimer;
     [SerializeField] float explosionForce;
     [SerializeField] float explosionRadius;
     [SerializeField] float upwardsModifier;
@@ -16,7 +16,7 @@ public class DestroyPeices : MonoBehaviour
 
     IEnumerator DestroyPrefabPeices()
     {
-        yield return new WaitForSeconds(timer);
+        yield return new WaitForSeconds(destroyPeicesTimer);
         Destroy(this.gameObject);
     }
 

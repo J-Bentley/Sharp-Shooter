@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2162878561210144574}
   - component: {fileID: 5924562939212342971}
   m_Layer: 8
-  m_Name: Desructible Crate
+  m_Name: Destroyable Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,9 +30,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6270690877255317754}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.373, y: 3.68, z: -0.782}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 1
-  destroyedObjectPrefab: {fileID: 5032839428634947285, guid: 7b09ca5c9a509904490de423551757ba, type: 3}
+  destroyedObjectPrefab: {fileID: 3788847382505310730, guid: 184e7ea2f9317b849bd58bcc2c5b476d, type: 3}
 --- !u!54 &2162878561210144574
 Rigidbody:
   m_ObjectHideFlags: 0
