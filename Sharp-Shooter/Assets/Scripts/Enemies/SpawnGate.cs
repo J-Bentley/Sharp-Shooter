@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnGate : MonoBehaviour {
 
-    [SerializeField] int spawnTime;
+    [SerializeField] float spawnTime;
     [SerializeField] Transform spawnPoint;
     [SerializeField] GameObject[] enemyPrefabs;
     [SerializeField] ParticleSystem spawnGateVFX;
@@ -25,7 +25,8 @@ public class SpawnGate : MonoBehaviour {
 
     IEnumerator SpawnRoutine() {
         while (player != null) {
-            Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoint.position, Quaternion.identity);
+            int randomIndex = Random.Range(0, enemyPrefabs.Length);
+            Instantiate(enemyPrefabs[randomIndex], spawnPoint.position, Quaternion.identity);
             spawnGateVFX.Play();
             audiosource.Play();
             yield return new WaitForSeconds(spawnTime);
