@@ -111,6 +111,8 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			Debug.Log("Rot speed: "+RotationSpeed);
 		}
 
 		private void Update()
@@ -125,8 +127,17 @@ namespace StarterAssets
 			CameraRotation();
 		}
 
-        public void ChangeRotationSpeed(float amount) {
+        public void SetRotationSpeed(float amount) {
             RotationSpeed = amount;
+
+			Debug.Log("Rot speed: "+RotationSpeed); 
+        }
+
+        public void MultiplyRotationSpeed(float amount) {
+			if (amount == 0f) return;
+            RotationSpeed = RotationSpeed * amount;
+
+			Debug.Log("Rot speed: "+RotationSpeed); 
         }
 
 		private void GroundedCheck()

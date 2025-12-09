@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class CameraBob : MonoBehaviour {
 
+    // Moves camera in parabolic motion (U shaped curve)
+
     [Header("Settings")]
-    [SerializeField] float walkingBobbingSpeed;
+    [SerializeField] float walkingBobbingSpeed; // speed of bob
     [SerializeField] float runningBobbingSpeed;
-    [SerializeField] float bobbingAmount;
+    [SerializeField] float bobbingAmount; // size of the U shape
+    [SerializeField] float moveThreshold; // how much does the player have to move for camera to bob
 
     [Header("References")]
     [SerializeField] FirstPersonController firstPersonController;
@@ -20,8 +23,9 @@ public class CameraBob : MonoBehaviour {
     }
 
     void Update() {
-        if (firstPersonController.Grounded && starterAssetsInputs.move.sqrMagnitude > 0.001f) {
+        if (firstPersonController.Grounded && starterAssetsInputs.move.sqrMagnitude > moveThreshold) {
 
+            // Uses differant variable if sprinting
             float speed = starterAssetsInputs.sprint ? runningBobbingSpeed : walkingBobbingSpeed;
 
             timer += Time.deltaTime * speed;
@@ -31,6 +35,9 @@ public class CameraBob : MonoBehaviour {
             transform.localPosition = pos;
         }
         else {
+
+            // smoothly reset camera to default pos when not moving
+
             timer = Mathf.Lerp(timer, 0f, Time.deltaTime * 5f);
 
             Vector3 pos = transform.localPosition;

@@ -840,6 +840,7 @@ MonoBehaviour:
   walkingBobbingSpeed: 12
   runningBobbingSpeed: 20
   bobbingAmount: 0.07
+  moveThreshold: 0.01
   firstPersonController: {fileID: 7634163176502431832}
   starterAssetsInputs: {fileID: 2753124665240329605}
 --- !u!1 &9069630047242149687

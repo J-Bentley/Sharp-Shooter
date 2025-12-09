@@ -62,7 +62,7 @@ public class ActiveWeapon : MonoBehaviour {
             currentWeapon.Shoot(CurrentWeaponSO);
             animator.Play(SHOOT_STRING, 0, 0f);
             timeSinceLastShot = 0f;
-            AdjustAmmo(-1);
+            AdjustAmmo(-1); // adding a negative number is the same thing as subtracting it, neat!
         }
 
         if (!CurrentWeaponSO.IsAutomatic) {
@@ -80,6 +80,7 @@ public class ActiveWeapon : MonoBehaviour {
                 // gets current rot speed, needed here if player changes their sens
                 isZooming = true;
                 storedRotationSpeed = firstPersonController.RotationSpeed;
+                firstPersonController.MultiplyRotationSpeed(CurrentWeaponSO.ZoomRotationSpeed);
             }
 
             // Sniper handling
@@ -91,8 +92,7 @@ public class ActiveWeapon : MonoBehaviour {
             // Set FOV and rot speed of weaponSO
             weaponCamera.fieldOfView = CurrentWeaponSO.ZoomAmount;
             playerFollowCamera.m_Lens.FieldOfView = CurrentWeaponSO.ZoomAmount;
-            firstPersonController.ChangeRotationSpeed(CurrentWeaponSO.ZoomRotationSpeed);
-            
+
         }
         else {
             if (isZooming)
@@ -102,7 +102,7 @@ public class ActiveWeapon : MonoBehaviour {
                 // Return FOV and rot speed when not zoomed in
                 playerFollowCamera.m_Lens.FieldOfView = defaultFOV;
                 weaponCamera.fieldOfView = defaultFOV;
-                firstPersonController.ChangeRotationSpeed(storedRotationSpeed);
+                firstPersonController.SetRotationSpeed(storedRotationSpeed);
 
                 // Sniper handling
                 zoomVignette.SetActive(false);
