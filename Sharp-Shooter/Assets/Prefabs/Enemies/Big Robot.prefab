@@ -729,6 +729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 10
   explosionVFX: {fileID: 482406643162879726, guid: 4191fbb341f70144a88fa904ead26e52, type: 3}
+  destroyedObjectPrefab: {fileID: 8755729791273575312, guid: 2bde716cc56964142891f9529cb02950, type: 3}
 --- !u!95 &3654840341234344539
 Animator:
   serializedVersion: 7

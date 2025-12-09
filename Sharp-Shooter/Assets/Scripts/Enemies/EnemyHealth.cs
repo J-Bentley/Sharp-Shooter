@@ -4,6 +4,8 @@ public class EnemyHealth : MonoBehaviour {
 
     [SerializeField] public int startingHealth;
     [SerializeField] GameObject explosionVFX;
+    [SerializeField] GameObject destroyedObjectPrefab;
+
 
     GameManager gameManager;
     int currentHealth;
@@ -32,6 +34,7 @@ public class EnemyHealth : MonoBehaviour {
 
     public void SelfDestruct() {
         Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        Instantiate(destroyedObjectPrefab, transform.position, Quaternion.identity);
         gameManager.AdjustEnemiesRemaining(-1);
         Destroy(this.gameObject);
     }

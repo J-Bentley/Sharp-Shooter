@@ -8,7 +8,7 @@ public class NewMonoBehaviourScript : MonoBehaviour {
     NavMeshAgent agent;
     bool isDead = false;
     float repathTimer;
-
+    
     const string PLAYER_STRING = "Player";
 
     void Awake() {
@@ -23,7 +23,7 @@ public class NewMonoBehaviourScript : MonoBehaviour {
 
         if (!player) return;
 
-        repathTimer -=Time.deltaTime;
+        repathTimer -= Time.deltaTime;
         
         if (repathTimer <= 0f) {
             agent.SetDestination(player.transform.position);

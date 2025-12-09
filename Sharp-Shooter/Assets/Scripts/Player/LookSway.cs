@@ -1,28 +1,27 @@
 using StarterAssets;
 using UnityEngine;
 
-public class LookSway : MonoBehaviour {
+public class LookSway : MonoBehaviour
+{
+    [Header("Settings")]
     [SerializeField] float swayMultiplier;
     [SerializeField] float swaySmoothing;
 
-    StarterAssetsInputs starterAssetsInputs;
+    [Header("References")]
+    [SerializeField] StarterAssetsInputs starterAssetsInputs;
 
-    void Awake() {
-        starterAssetsInputs = FindFirstObjectByType<StarterAssetsInputs>();
-    }
+    void Update()
+    {
+        // Mouse input
+        float swayX = -starterAssetsInputs.look.y * swayMultiplier; // pitch
+        float swayY = starterAssetsInputs.look.x * swayMultiplier;  // yaw
+        float swayZ = -starterAssetsInputs.move.x * 0.5f * swayMultiplier; // roll from strafing
 
-    void Update() {
-        float mouseX = starterAssetsInputs.look.x * swayMultiplier;
-        float mouseY = starterAssetsInputs.look.y * swayMultiplier;
-        float mouseZ = starterAssetsInputs.look.x * swayMultiplier;
-        float strafe = starterAssetsInputs.move.x * 2 * swayMultiplier;
+        // Combine rotations
+        Quaternion targetRot = Quaternion.Euler(swayX, swayY, swayZ);
 
-        Quaternion rotX = Quaternion.AngleAxis(-mouseY, Vector3.right);
-        Quaternion rotY = Quaternion.AngleAxis(mouseX, Vector3.up);
-        Quaternion rotZ = Quaternion.AngleAxis(mouseZ, Vector3.back);
-        Quaternion strafeRot = Quaternion.AngleAxis(-strafe, Vector3.forward);
-
-        Quaternion targetRot = rotX * rotY * rotZ * strafeRot;
+        // Smoothly interpolate
         transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRot, swaySmoothing * Time.deltaTime);
+
     }
 }

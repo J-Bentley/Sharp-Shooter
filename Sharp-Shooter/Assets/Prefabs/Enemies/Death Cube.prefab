@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7767629566827131030}
   - component: {fileID: 8150498861483655577}
   - component: {fileID: 1079830066041162544}
-  - component: {fileID: 4808052878476839449}
+  - component: {fileID: 8554337912120462907}
   m_Layer: 6
   m_Name: Death Cube
   m_TagString: Untagged
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4808052878476839449
+--- !u!114 &8554337912120462907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1157326253179896667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 287368a2aad77a4438ae3d254ab4cf43, type: 3}
+  m_Script: {fileID: 11500000, guid: 308bd251d5f2c534db413ec4ad6488bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 10
+  damage: 100

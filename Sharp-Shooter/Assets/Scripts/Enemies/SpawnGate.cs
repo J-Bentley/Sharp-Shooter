@@ -18,13 +18,13 @@ public class SpawnGate : MonoBehaviour {
 
     void Start() {
         player = FindFirstObjectByType<PlayerHealth>();
-        if (FindAnyObjectByType<FirstPersonController>()) {
+        if (player != null) {
            StartCoroutine(SpawnRoutine());
         }
     }
 
     IEnumerator SpawnRoutine() {
-        while (player) {
+        while (player != null) {
             Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoint.position, Quaternion.identity);
             spawnGateVFX.Play();
             audiosource.Play();

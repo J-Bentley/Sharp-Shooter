@@ -1,36 +1,41 @@
 using StarterAssets;
 using UnityEngine;
 
-public class CameraBob : MonoBehaviour
-{
+public class CameraBob : MonoBehaviour {
+
     [Header("Settings")]
-    [SerializeField] float walkingBobbingSpeed = 14f; 
-    [SerializeField] float runningBobbingSpeed = 18f; 
-    [SerializeField] float bobbingAmount = 0.05f;
+    [SerializeField] float walkingBobbingSpeed;
+    [SerializeField] float runningBobbingSpeed;
+    [SerializeField] float bobbingAmount;
+
+    [Header("References")]
+    [SerializeField] FirstPersonController firstPersonController;
+    [SerializeField] StarterAssetsInputs starterAssetsInputs;
 
     float defaultYPos;
-    float timer; 
-    FirstPersonController firstPersonController;
-    StarterAssetsInputs starterAssetsInputs;
+    float timer;
 
-    void Start() {
+    void Awake() {
         defaultYPos = transform.localPosition.y;
-        firstPersonController = FindFirstObjectByType<FirstPersonController>();
-        starterAssetsInputs = FindFirstObjectByType<StarterAssetsInputs>();
     }
 
     void Update() {
-        if (firstPersonController.Grounded && starterAssetsInputs.move != Vector2.zero) {
+        if (firstPersonController.Grounded && starterAssetsInputs.move.sqrMagnitude > 0.001f) {
 
             float speed = starterAssetsInputs.sprint ? runningBobbingSpeed : walkingBobbingSpeed;
 
             timer += Time.deltaTime * speed;
-            float newY = defaultYPos + Mathf.Sin(timer) * bobbingAmount;
-            transform.localPosition = new Vector3(transform.localPosition.x, newY, transform.localPosition.z);
+
+            Vector3 pos = transform.localPosition;
+            pos.y = defaultYPos + Mathf.Sin(timer) * bobbingAmount;
+            transform.localPosition = pos;
         }
         else {
-            timer = 0;
-            transform.localPosition = new Vector3(transform.localPosition.x, defaultYPos, transform.localPosition.z);
+            timer = Mathf.Lerp(timer, 0f, Time.deltaTime * 5f);
+
+            Vector3 pos = transform.localPosition;
+            pos.y = Mathf.Lerp(pos.y, defaultYPos, Time.deltaTime * 10f);
+            transform.localPosition = pos;
         }
     }
 }

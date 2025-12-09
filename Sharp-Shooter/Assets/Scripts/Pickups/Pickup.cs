@@ -20,11 +20,11 @@ public abstract class Pickup : MonoBehaviour {
             // Stops Trigger from being ran more than once
             this.GetComponent<Collider>().enabled = false;
 
-            //Desroys the model and point light of the pickup but keeps the parent alive where audio source is
+            //Destroys the model and point light of the pickup but keeps the parent alive where audio source is
             Transform firstChild = transform.GetChild(0);
             Destroy(firstChild.gameObject);
 
-            // Gives ammo
+            // Gives ammo or something?
             ActiveWeapon activeWeapon = other.GetComponentInChildren<ActiveWeapon>();
             OnPickup(activeWeapon);
 
