@@ -5228,6 +5228,8 @@ MonoBehaviour:
   startingHealth: 15
   explosionVFX: {fileID: 482406643162879726, guid: 2a789e7270d39f042b71fccbdc2e1558, type: 3}
   destroyedObjectPrefab: {fileID: 7325978406126760843, guid: c858eb634bcc2f042a0d615d48e6a534, type: 3}
+  droppedAmmoPickupPrefab: {fileID: 5247248352078418783, guid: 3c659ac570de28e4fb6fbd2d01fc0234, type: 3}
+  chanceOfAmmoDrop: 0.025
 --- !u!114 &2955688087778970624
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,14 +2,21 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 public class VolumeController : MonoBehaviour {
+
     [SerializeField] AudioMixer masterMixer;
 
-    public void SetMusicVolume(float soundLevel) {
-        masterMixer.SetFloat ("MusicVolume", soundLevel);
+    const float MIN_DB = -80f;
+
+    public void SetMusicVolume(float value) {
+        masterMixer.SetFloat("MusicVolume", LinearToDecibel(value));
     }
 
-    public void SetSFXVolume(float soundLevel) {
-        masterMixer.SetFloat ("SFXVolume", soundLevel);
+    public void SetSFXVolume(float value) {
+        masterMixer.SetFloat("SFXVolume", LinearToDecibel(value));
     }
-    // min value -80, max value 0
+
+    float LinearToDecibel(float value) {
+        if (value <= 0f) return MIN_DB;
+        return Mathf.Log10(value) * 20f;
+    }
 }

@@ -5,17 +5,24 @@ using UnityEngine.UI;
 public class AdjustSensitivity : MonoBehaviour {
 
     [SerializeField] Slider sensitivitySlider;
+    [SerializeField] FirstPersonController firstPersonController;
 
-    FirstPersonController firstPersonController;
-
-    void Awake() {
-        firstPersonController = FindFirstObjectByType<FirstPersonController>();
-        sensitivitySlider.value = firstPersonController.RotationSpeed;
+    void Start() {
+        if (firstPersonController && sensitivitySlider) {
+            sensitivitySlider.value = firstPersonController.RotationSpeed; //sets slider to current value of rotation speed
+            sensitivitySlider.onValueChanged.AddListener(OnSensitivityChanged); // uses event listener to listen for slider change and sets OnSensChanged to slider value
+        }
     }
 
-    public void AdjustSens() {
-        if (firstPersonController && sensitivitySlider) { 
-            firstPersonController.RotationSpeed = sensitivitySlider.value;
+    void OnDestroy() {
+        if (sensitivitySlider) {
+            sensitivitySlider.onValueChanged.RemoveListener(OnSensitivityChanged); //remove unused listener
+        }
+    }
+
+    void OnSensitivityChanged(float value) {
+        if (firstPersonController) {
+            firstPersonController.RotationSpeed = value;
         }
     }
 }
