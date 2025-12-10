@@ -77,10 +77,12 @@ public class ActiveWeapon : MonoBehaviour {
 
             if (!isZooming)
             {
-                // gets current rot speed, needed here if player changes their sens
+                // Stores current rot speed then multiplies it by zoomRotSpeedMultiplier on WeaponSO 
+                // by setting zoomRotSpeedMultiplier to 0.5 we can get the desired effect for the 
+                // sniper: half of current rot speed while zoomed in
                 isZooming = true;
                 storedRotationSpeed = firstPersonController.RotationSpeed;
-                firstPersonController.MultiplyRotationSpeed(CurrentWeaponSO.ZoomRotationSpeed);
+                firstPersonController.MultiplyRotationSpeed(CurrentWeaponSO.ZoomRotationSpeedMultiplier);
             }
 
             // Sniper handling

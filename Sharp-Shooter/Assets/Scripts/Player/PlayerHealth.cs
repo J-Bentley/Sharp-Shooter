@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Transform weaponCamera;
     [SerializeField] Image[] shieldBars;
     [SerializeField] GameObject gameOverContainer;
+    [SerializeField] StarterAssetsInputs starterAssetsInputs;
 
     public int currentHealth;
     int gameOverVirtualCameraPriority = 20;
@@ -56,7 +57,6 @@ public class PlayerHealth : MonoBehaviour
         weaponCamera.parent = null;
         deathVirtualCamera.Priority = gameOverVirtualCameraPriority;
         gameOverContainer.SetActive(true);
-        StarterAssetsInputs starterAssetsInputs = FindFirstObjectByType<StarterAssetsInputs>();
         starterAssetsInputs.SetCursorState(false);
         Destroy(this.gameObject);
     }

@@ -5229,7 +5229,8 @@ MonoBehaviour:
   explosionVFX: {fileID: 482406643162879726, guid: 2a789e7270d39f042b71fccbdc2e1558, type: 3}
   destroyedObjectPrefab: {fileID: 7325978406126760843, guid: c858eb634bcc2f042a0d615d48e6a534, type: 3}
   droppedAmmoPickupPrefab: {fileID: 5247248352078418783, guid: 3c659ac570de28e4fb6fbd2d01fc0234, type: 3}
-  chanceOfAmmoDrop: 0.025
+  healthbar: {fileID: 8292117275139559871}
+  chanceOfAmmoDrop: 0.024
 --- !u!114 &2955688087778970624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5362,6 +5363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419e8cc335245749b5df7c89a3e5e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBarCanvas: {fileID: 7469208900656968178}
 --- !u!208 &3312215924154992458
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -5629,6 +5631,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c631418c7884f54faabf250c589e499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 2514838583426632517}
+  enemyHealth: {fileID: 2941532333633845593}
+  fillImage: {fileID: 1826705582354930749}
 --- !u!1 &8130432734437221441
 GameObject:
   m_ObjectHideFlags: 0

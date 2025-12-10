@@ -7408,7 +7408,8 @@ MonoBehaviour:
   explosionVFX: {fileID: 482406643162879726, guid: 2a789e7270d39f042b71fccbdc2e1558, type: 3}
   destroyedObjectPrefab: {fileID: 3830491695626813570, guid: 11112d7bff4c13f48acffb1f9d7dfaa6, type: 3}
   droppedAmmoPickupPrefab: {fileID: 5247248352078418783, guid: 3c659ac570de28e4fb6fbd2d01fc0234, type: 3}
-  chanceOfAmmoDrop: 0.109
+  healthbar: {fileID: 7310296093329497439}
+  chanceOfAmmoDrop: 0.084
 --- !u!114 &3072091541906320568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7626,3 +7627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c631418c7884f54faabf250c589e499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 3784826288151267237}
+  enemyHealth: {fileID: 1144857399220034439}
+  fillImage: {fileID: 1096947731349065949}

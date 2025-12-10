@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class EnemyHealthBarVisibility : MonoBehaviour
 {
-    Canvas healthBarCanvas;
+    [SerializeField] Canvas healthBarCanvas;
     Transform playerCamera;
     float maxDetectionDistance = 50f;
-    float viewAngleThreshold = 15f;
-    
-    void Awake()
-    {
-        healthBarCanvas = GetComponentInChildren<Canvas>();
-    }
+    float viewAngleThreshold = 12f;
 
     void Start()
     {

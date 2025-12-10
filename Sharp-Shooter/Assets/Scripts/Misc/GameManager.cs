@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour {
     StarterAssetsInputs starterAssetsInputs;
     int enemiesRemaining = 0;
 
-    const string ENEMIES_REMAINING_STRING = "robots remaining: ";
-
     void Awake() {
         starterAssetsInputs = FindFirstObjectByType<StarterAssetsInputs>();
     }

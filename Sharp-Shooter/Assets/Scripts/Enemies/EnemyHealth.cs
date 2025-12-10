@@ -6,16 +6,16 @@ public class EnemyHealth : MonoBehaviour {
     [SerializeField] GameObject explosionVFX;
     [SerializeField] GameObject destroyedObjectPrefab;
     [SerializeField] GameObject droppedAmmoPickupPrefab;
+    [SerializeField] Healthbar healthbar;
     [Range (0,1)]
     [SerializeField] float chanceOfAmmoDrop; // 0.7 = 70 percent chance of ammo dropping
 
     GameManager gameManager;
     int currentHealth;
-    Healthbar healthbar;
+    
     
     void Awake() {
         currentHealth = startingHealth;
-        healthbar = GetComponentInChildren<Healthbar>();
     }
 
     void Start() { 

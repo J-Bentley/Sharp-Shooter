@@ -112,7 +112,7 @@ namespace StarterAssets
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
 
-			Debug.Log("Rot speed: "+RotationSpeed);
+			//Debug.Log("Rot speed: "+RotationSpeed);
 		}
 
 		private void Update()
@@ -130,14 +130,14 @@ namespace StarterAssets
         public void SetRotationSpeed(float amount) {
             RotationSpeed = amount;
 
-			Debug.Log("Rot speed: "+RotationSpeed); 
+			//Debug.Log("Rot speed: "+RotationSpeed); 
         }
 
         public void MultiplyRotationSpeed(float amount) {
 			if (amount == 0f) return;
             RotationSpeed = RotationSpeed * amount;
 
-			Debug.Log("Rot speed: "+RotationSpeed); 
+			//Debug.Log("Rot speed: "+RotationSpeed); 
         }
 
 		private void GroundedCheck()

@@ -303,7 +303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2aa0b172f23544abe90a071cb9865e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7634163176502431832, guid: efcd67e8a74062843ab7d80c0ee18cb2, type: 3}
 --- !u!114 &2651031802017473685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +319,7 @@ MonoBehaviour:
   explosionVFX: {fileID: 482406643162879726, guid: 2a789e7270d39f042b71fccbdc2e1558, type: 3}
   destroyedObjectPrefab: {fileID: 8755729791273575312, guid: 4bbd029bccdf790498c0d15d9bc9bab4, type: 3}
   droppedAmmoPickupPrefab: {fileID: 5247248352078418783, guid: 3c659ac570de28e4fb6fbd2d01fc0234, type: 3}
+  healthbar: {fileID: 8991270857824815850}
   chanceOfAmmoDrop: 0.433
 --- !u!95 &737529881445074937
 Animator:
@@ -525,6 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e419e8cc335245749b5df7c89a3e5e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBarCanvas: {fileID: 7526386222587095719}
 --- !u!1 &7457281924563685278
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c631418c7884f54faabf250c589e499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 3256786226769678352}
+  enemyHealth: {fileID: 2651031802017473685}
+  fillImage: {fileID: 1625006184922056552}
 --- !u!1 &8410579064724625917
 GameObject:
   m_ObjectHideFlags: 0

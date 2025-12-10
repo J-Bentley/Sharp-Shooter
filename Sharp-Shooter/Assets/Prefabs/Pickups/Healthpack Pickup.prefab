@@ -72,6 +72,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 1
   rotationSpeed: 100
+  playerHealth: {fileID: 0}
+  audioSource: {fileID: 2450221365771802681}
 --- !u!82 &2450221365771802681
 AudioSource:
   m_ObjectHideFlags: 0

@@ -341,6 +341,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   gameOverContainer: {fileID: 0}
+  starterAssetsInputs: {fileID: 2753124665240329605}
   currentHealth: 0
 --- !u!82 &8012854360756837063
 AudioSource:
