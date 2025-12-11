@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  MoveSpeed: 8
+  MoveSpeed: 6
   SprintSpeed: 10
   RotationSpeed: 1
   SpeedChangeRate: 10

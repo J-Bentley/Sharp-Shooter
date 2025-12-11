@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Cinemachine;
 
-public class Explosion : MonoBehaviour {
+public class GrenadeExplosion : MonoBehaviour {
 
     [SerializeField] float radius;
     [SerializeField] int damage;
@@ -33,32 +33,37 @@ public class Explosion : MonoBehaviour {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
         HashSet<object> damaged = new HashSet<object>();
 
-        // Enemy Explosion: Damages player and crates. Does not damage barrels or enemies.
+        // Grenade Explosion: Damages Enemies, crates and barrels. Doesnt hurt player.
 
         foreach (Collider hitCollider in hitColliders)
         {
 
-            PlayerHealth playerHealth = hitCollider.GetComponent<PlayerHealth>();
+            EnemyHealth enemyHealth = hitCollider.GetComponentInParent<EnemyHealth>();
             DestroyableObject destroyableObject = hitCollider.GetComponent<DestroyableObject>();
-            
+            ExplodingBarrel explodingBarrel = hitCollider.GetComponent<ExplodingBarrel>();
+
             Rigidbody rb = hitCollider.GetComponent<Rigidbody>();
 
             if (rb != null)
             {
                 rb.AddExplosionForce(explosionForce, transform.position, radius, upwardModifier, ForceMode.Impulse);
             }
-
-
-            if (playerHealth != null && !damaged.Contains(playerHealth))
+            if (enemyHealth != null && !damaged.Contains(enemyHealth))
             {
-                playerHealth.TakeDamage(damage);
-                damaged.Add(playerHealth);
+                enemyHealth.TakeDamage(damage);
+                damaged.Add(enemyHealth);
             }
             
             if (destroyableObject != null && !damaged.Contains(destroyableObject))
             {
                 destroyableObject.TakeDamage(damage);
                 damaged.Add(destroyableObject);
+            }
+
+            if (explodingBarrel != null && !damaged.Contains(explodingBarrel))
+            {
+                explodingBarrel.TakeDamage(damage);
+                damaged.Add(explodingBarrel);
             }
         }
     }

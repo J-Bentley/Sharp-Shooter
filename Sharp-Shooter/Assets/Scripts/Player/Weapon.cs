@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour {
     [SerializeField] ParticleSystem muzzleFlashVFX;
     [SerializeField] LayerMask interactionLayers;
     [SerializeField] ParticleSystem bulletHoleVFX;
+    [SerializeField] ParticleSystem enemyHitVFX;
 
     CinemachineImpulseSource impulseSource;
 
@@ -31,7 +32,8 @@ public class Weapon : MonoBehaviour {
             Quaternion normalizedRotation = Quaternion.LookRotation(hit.normal);
             Instantiate(weaponSO.HitVFXPrefab, hit.point, normalizedRotation);
 
-            EnemyHealth enemyHealth = hit.collider.GetComponentInParent<EnemyHealth>(); //turret collider is on child GO and robot collider is on parent GO. GetComponentInParent searches its own components before checking parents.
+            // turret collider is on child GO and robot collider is on parent GO. GetComponentInParent searches its own components before checking parents.
+            EnemyHealth enemyHealth = hit.collider.GetComponentInParent<EnemyHealth>(); 
             enemyHealth?.TakeDamage(weaponSO.Damage);
 
             DestroyableObject destroyableObject = hit.collider.gameObject.GetComponent<DestroyableObject>();
@@ -40,9 +42,14 @@ public class Weapon : MonoBehaviour {
             ExplodingBarrel explodingBarrel = hit.collider.gameObject.GetComponent<ExplodingBarrel>();
             explodingBarrel?.TakeDamage(weaponSO.Damage);
 
-            Vector3 offsetPosition = hit.point + hit.normal * 0.001f; //stops z-fighting
+            Vector3 offsetPosition = hit.point + hit.normal * 0.001f; // stops z-fighting
 
-            if (!enemyHealth)
+            if (enemyHealth)
+            {
+                ParticleSystem enemyHit = Instantiate(enemyHitVFX, offsetPosition, normalizedRotation);
+                enemyHit.transform.SetParent(hit.transform, worldPositionStays: true);
+            } 
+            else
             {
                 ParticleSystem bulletHole = Instantiate(bulletHoleVFX, offsetPosition, normalizedRotation);
                 bulletHole.transform.SetParent(hit.transform, worldPositionStays: true);

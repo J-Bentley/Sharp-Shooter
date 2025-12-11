@@ -2,8 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using Cinemachine;
 
-// NOTE: ONLY player can damage a barrel to make it explode
-
 public class BarrelExplosion : MonoBehaviour
 {
     [SerializeField] float radius;
@@ -44,7 +42,7 @@ public class BarrelExplosion : MonoBehaviour
         {
 
             PlayerHealth playerHealth = hitCollider.GetComponent<PlayerHealth>();
-            EnemyHealth enemyHealth = hitCollider.GetComponentInParent<EnemyHealth>();
+            EnemyHealth enemyHealth = hitCollider.GetComponentInParent<EnemyHealth>(); // GetComponentInParent is needed because turret
             DestroyableObject destroyableObject = hitCollider.GetComponent<DestroyableObject>();
 
             Rigidbody rb = hitCollider.GetComponent<Rigidbody>();

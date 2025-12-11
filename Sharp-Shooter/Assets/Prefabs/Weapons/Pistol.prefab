@@ -267,8 +267,9 @@ MonoBehaviour:
   muzzleFlashVFX: {fileID: 7893315032382474162}
   interactionLayers:
     serializedVersion: 2
-    m_Bits: 507
+    m_Bits: 251
   bulletHoleVFX: {fileID: 1014317291069184551, guid: ec4393b4a7e4dec4dba63b0a7987fa17, type: 3}
+  enemyHitVFX: {fileID: 6813927193963013821, guid: d283769966526f945ba5bfa567026841, type: 3}
 --- !u!114 &1862219190413669319
 MonoBehaviour:
   m_ObjectHideFlags: 0
