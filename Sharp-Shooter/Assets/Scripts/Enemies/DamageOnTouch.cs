@@ -10,12 +10,10 @@ public class DamagePlayerOnTouch : MonoBehaviour {
     {
         PlayerHealth playerHealth = other.GetComponentInParent<PlayerHealth>();
         EnemyHealth enemyHealth = other.GetComponentInParent<EnemyHealth>();
-        ExplodingBarrel explodingBarrel = other.GetComponent<ExplodingBarrel>();
         DestroyableObject destroyableObject = other.GetComponent<DestroyableObject>();
     
         enemyHealth?.TakeDamage(damage);
         playerHealth?.TakeDamage(damage);
-        explodingBarrel?.TakeDamage(damage);
         destroyableObject?.TakeDamage(damage);
     }
 }

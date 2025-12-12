@@ -9,7 +9,11 @@ public class Explosion : MonoBehaviour {
     [SerializeField] float explosionForce;
     [SerializeField] float upwardModifier;
 
-    
+    [SerializeField] bool damagePlayer;
+    [SerializeField] bool damageEnemy;
+    [SerializeField] bool damageBarrel;
+    [SerializeField] bool damageCrate;
+
     const string PLAYER_STRING = "Player";
 
     CinemachineImpulseSource impulseSource;
@@ -33,12 +37,11 @@ public class Explosion : MonoBehaviour {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
         HashSet<object> damaged = new HashSet<object>();
 
-        // Enemy Explosion: Damages player and crates. Does not damage barrels or enemies.
-
         foreach (Collider hitCollider in hitColliders)
         {
 
             PlayerHealth playerHealth = hitCollider.GetComponent<PlayerHealth>();
+            EnemyHealth enemyHealth = hitCollider.GetComponentInParent<EnemyHealth>(); // turrets needs GetComponentInParent
             DestroyableObject destroyableObject = hitCollider.GetComponent<DestroyableObject>();
             
             Rigidbody rb = hitCollider.GetComponent<Rigidbody>();
@@ -46,16 +49,23 @@ public class Explosion : MonoBehaviour {
             if (rb != null)
             {
                 rb.AddExplosionForce(explosionForce, transform.position, radius, upwardModifier, ForceMode.Impulse);
+                //Debug.Log("### EXPLOSION PUSH: ### " + hitCollider.gameObject.name);
             }
 
 
-            if (playerHealth != null && !damaged.Contains(playerHealth))
+            if (damagePlayer && playerHealth != null && !damaged.Contains(playerHealth))
             {
                 playerHealth.TakeDamage(damage);
                 damaged.Add(playerHealth);
             }
-            
-            if (destroyableObject != null && !damaged.Contains(destroyableObject))
+
+            if (damageEnemy && enemyHealth != null && !damaged.Contains(enemyHealth))
+            {
+                enemyHealth.TakeDamage(damage);
+                damaged.Add(enemyHealth);
+            }
+
+            if (damageCrate && destroyableObject != null && !damaged.Contains(destroyableObject))
             {
                 destroyableObject.TakeDamage(damage);
                 damaged.Add(destroyableObject);

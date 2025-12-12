@@ -38,21 +38,23 @@ public class Weapon : MonoBehaviour {
 
             DestroyableObject destroyableObject = hit.collider.gameObject.GetComponent<DestroyableObject>();
             destroyableObject?.TakeDamage(weaponSO.Damage);
+            
+            // stops z-fighting
+            Vector3 offsetPosition = hit.point + hit.normal * 0.001f; 
 
-            ExplodingBarrel explodingBarrel = hit.collider.gameObject.GetComponent<ExplodingBarrel>();
-            explodingBarrel?.TakeDamage(weaponSO.Damage);
 
-            Vector3 offsetPosition = hit.point + hit.normal * 0.001f; // stops z-fighting
+            ParticleSystem enemyHit = Instantiate(enemyHitVFX, offsetPosition, normalizedRotation);
+            enemyHit.transform.SetParent(hit.transform, worldPositionStays: true);
 
+            ParticleSystem bulletHole = Instantiate(bulletHoleVFX, offsetPosition, normalizedRotation);
+            bulletHole.transform.SetParent(hit.transform, worldPositionStays: true);
             if (enemyHealth)
             {
-                ParticleSystem enemyHit = Instantiate(enemyHitVFX, offsetPosition, normalizedRotation);
-                enemyHit.transform.SetParent(hit.transform, worldPositionStays: true);
+
             } 
             else
             {
-                ParticleSystem bulletHole = Instantiate(bulletHoleVFX, offsetPosition, normalizedRotation);
-                bulletHole.transform.SetParent(hit.transform, worldPositionStays: true);
+
             }
         }
     }

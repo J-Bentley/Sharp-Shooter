@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1113848481804978434}
   - component: {fileID: 4096856052708345511}
   - component: {fileID: 2251240808114549357}
+  - component: {fileID: 5371296134086575952}
   m_Layer: 0
   m_Name: HoveringRobot02
   m_TagString: Untagged
@@ -87,6 +88,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &5371296134086575952
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305963189779583928}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5582569
+  m_Height: 0.9750458
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.06417741, z: -0.0574435}
 --- !u!1 &437852271455732407
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +156,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9960785, g: 0.4431373, b: 0.9960785, a: 1}
   m_Intensity: 1
-  m_Range: 30
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -657,7 +681,6 @@ GameObject:
   - component: {fileID: 2039841497612583223}
   - component: {fileID: 3654840341234344539}
   - component: {fileID: 6650731261862155067}
-  - component: {fileID: -8973213759171537697}
   - component: {fileID: 3223699961511088717}
   - component: {fileID: 6013143705833526342}
   m_Layer: 6
@@ -774,29 +797,6 @@ CapsuleCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &-8973213759171537697
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7743315328739873670}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2

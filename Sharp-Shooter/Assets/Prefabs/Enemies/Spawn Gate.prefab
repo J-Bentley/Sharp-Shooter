@@ -368,7 +368,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1616
+  m_VersionIndex: 1688
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6875,11 +6875,19 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1542
+  m_VersionIndex: 1617
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 00000000
+  m_SelectedEdges:
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  - a: 0
+    b: 0
+  m_SelectedVertices: 00000000000000000000000000000000
 --- !u!114 &3304896515724708343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7409,7 +7417,7 @@ MonoBehaviour:
   destroyedObjectPrefab: {fileID: 3830491695626813570, guid: 11112d7bff4c13f48acffb1f9d7dfaa6, type: 3}
   droppedAmmoPickupPrefab: {fileID: 5247248352078418783, guid: 3c659ac570de28e4fb6fbd2d01fc0234, type: 3}
   healthbar: {fileID: 7310296093329497439}
-  chanceOfAmmoDrop: 0.084
+  chanceOfAmmoDrop: 0
 --- !u!114 &3072091541906320568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7425,9 +7433,7 @@ MonoBehaviour:
   spawnTime: 15
   spawnPoint: {fileID: 7558576230979244607}
   enemyPrefabs:
-  - {fileID: 6048732512177354276, guid: 110d96c8fde391540b8f238458a45a2c, type: 3}
   - {fileID: 2348695849173419999, guid: 8445eaf0c5162fe4bba1b63b16b8e5be, type: 3}
-  - {fileID: 7743315328739873670, guid: f360a656e7f6a3e47b24277ba91c46a3, type: 3}
   spawnGateVFX: {fileID: 795556477115586374}
 --- !u!82 &8132486575849199228
 AudioSource:

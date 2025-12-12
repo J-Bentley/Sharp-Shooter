@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour {
 
-    private static MusicPlayer instance;
+    static MusicPlayer instance;
 
     void Awake() {
         if (instance != null && instance != this) {

@@ -49,7 +49,7 @@ public class ActiveWeapon : MonoBehaviour {
         if (currentAmmo > CurrentWeaponSO.MagazineSize) {
             currentAmmo = CurrentWeaponSO.MagazineSize;
         }
-        ammoText.text = currentAmmo.ToString("D2"); // display double digigts
+        ammoText.text = currentAmmo.ToString("D2"); // display double digits
     }
 
     void HandleShoot() {
@@ -77,9 +77,7 @@ public class ActiveWeapon : MonoBehaviour {
 
             if (!isZooming)
             {
-                // Stores current rot speed then multiplies it by zoomRotSpeedMultiplier on WeaponSO 
-                // by setting zoomRotSpeedMultiplier to 0.5 we can get the desired effect for the 
-                // sniper: half of current rot speed while zoomed in
+                // stores rot speed then scales according to the current rot speed
                 isZooming = true;
                 storedRotationSpeed = firstPersonController.RotationSpeed;
                 firstPersonController.MultiplyRotationSpeed(CurrentWeaponSO.ZoomRotationSpeedMultiplier);

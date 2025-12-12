@@ -1,17 +1,15 @@
 using System.Collections;
 using UnityEngine;
 
-public class DestroyPeices : MonoBehaviour
-{
+public class DestroyedObject : MonoBehaviour {
+
+    // Attached to parent of peices of destroyed crate and cracked enemy
+
     [SerializeField] float destroyPeicesTimer;
-    [SerializeField] float explosionForce;
-    [SerializeField] float explosionRadius;
-    [SerializeField] float upwardsModifier;
 
     void Start()
     {
         StartCoroutine(DestroyPrefabPeices());
-        Explode();
     }
 
     IEnumerator DestroyPrefabPeices()
@@ -20,13 +18,4 @@ public class DestroyPeices : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void Explode()
-    {
-        Rigidbody[] childRigidBodies = GetComponentsInChildren<Rigidbody>();
-
-        foreach (Rigidbody rb in childRigidBodies)
-        {
-            rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, upwardsModifier, ForceMode.Impulse);
-        }
-    }
 }

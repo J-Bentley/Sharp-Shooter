@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 3419340160970795172}
   - component: {fileID: 706394735461636829}
   - component: {fileID: 3039295912159938255}
-  - component: {fileID: 6362962227707299784}
+  - component: {fileID: 3786597462516093902}
   - component: {fileID: 3383619203896917191}
   m_Layer: 0
   m_Name: Grenade Explosion VFX
@@ -4982,7 +4982,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6362962227707299784
+--- !u!114 &3786597462516093902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4991,11 +4991,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 482406643162879726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bab1458b70f1054089720c8f9be4366, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ad2450fb92a92f4f917c8a81f34fb9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 10
-  damage: 3
+  radius: 5
+  damage: 5
+  explosionForce: 10
+  upwardModifier: 5
+  damagePlayer: 0
+  damageEnemy: 1
+  damageBarrel: 1
+  damageCrate: 1
 --- !u!114 &3383619203896917191
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour {
     public void SelfDestruct()
     {
         Instantiate(explosionVFX, transform.position, Quaternion.identity);
-        Instantiate(destroyedObjectPrefab, transform.position, Quaternion.identity);
+        Instantiate(destroyedObjectPrefab, transform.position, transform.rotation);
         gameManager.AdjustEnemiesRemaining(-1);
         ChanceOfAmmoDrop();
         Destroy(this.gameObject);

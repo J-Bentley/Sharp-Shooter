@@ -133,8 +133,8 @@ GameObject:
   - component: {fileID: 3419340160970795172}
   - component: {fileID: 706394735461636829}
   - component: {fileID: 3039295912159938255}
-  - component: {fileID: 3643224896921917664}
   - component: {fileID: 8169944746201432872}
+  - component: {fileID: 2916448995110642517}
   m_Layer: 0
   m_Name: Barrel Explosion VFX
   m_TagString: Untagged
@@ -4982,22 +4982,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3643224896921917664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482406643162879726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f170e142f6de82a48924e90a16979a19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 10
-  damage: 5
-  explosionForce: 25
-  upwardModifier: 5
 --- !u!114 &8169944746201432872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5051,6 +5035,26 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0, y: 0.2, z: 0.2}
+--- !u!114 &2916448995110642517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482406643162879726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad2450fb92a92f4f917c8a81f34fb9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 5
+  damage: 5
+  explosionForce: 10
+  upwardModifier: 5
+  damagePlayer: 1
+  damageEnemy: 1
+  damageBarrel: 0
+  damageCrate: 1
 --- !u!1 &6735984093996251658
 GameObject:
   m_ObjectHideFlags: 0

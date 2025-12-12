@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6957754330430539169}
-  - component: {fileID: 5278275556000740771}
   - component: {fileID: 5347129868311027986}
   - component: {fileID: 2978458354138297045}
   - component: {fileID: 6178236130483257453}
+  - component: {fileID: 8324827768540897517}
   m_Layer: 0
   m_Name: Exploding Barrel
   m_TagString: Untagged
@@ -38,21 +38,6 @@ Transform:
   - {fileID: 2282221202095363453}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5278275556000740771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 602971128662534385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 958c868a0ccd5fc4d891de10d1215821, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 1
-  explosionVFX: {fileID: 482406643162879726, guid: 142238e86e37d434e861bd2767d387f4, type: 3}
-  explosionDelay: 2
 --- !u!54 &5347129868311027986
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,6 +104,22 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &8324827768540897517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602971128662534385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d203758316ee24d8d0c5cbdcda603d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 1
+  destroyedObjectPrefab: {fileID: 482406643162879726, guid: 142238e86e37d434e861bd2767d387f4, type: 3}
+  isExplodingBarrel: 1
+  explosionDelay: 3
 --- !u!1 &2282221202095589725
 GameObject:
   m_ObjectHideFlags: 0
@@ -4982,7 +4983,7 @@ GameObject:
   - component: {fileID: 5565226841977500790}
   - component: {fileID: 4109671924674960176}
   m_Layer: 0
-  m_Name: barrel peice
+  m_Name: barrel body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6251,7 +6252,7 @@ GameObject:
   - component: {fileID: 6475495562965005305}
   - component: {fileID: 2404450006214122344}
   m_Layer: 0
-  m_Name: barrel peice (1)
+  m_Name: white strip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
