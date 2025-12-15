@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class DestroyableObject : MonoBehaviour {
 
+    // Attach to crates and barrels
+
     [SerializeField] int startingHealth;
     [SerializeField] GameObject destroyedObjectPrefab;
     [SerializeField] bool isExplodingBarrel;

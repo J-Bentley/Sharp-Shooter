@@ -7,6 +7,7 @@ namespace StarterAssets
 {
 	public class StarterAssetsInputs : MonoBehaviour
 	{
+		
 		[Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
@@ -23,15 +24,19 @@ namespace StarterAssets
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
-        GameManager gameManager;
-
-        void Awake() {
-            gameManager = FindFirstObjectByType<GameManager>();
-        }
-
         void Start() {
             SetCursorState(true);
         }
+
+		void Update()
+		{
+			if (pause)
+			{
+				FindFirstObjectByType<GameManager>().TogglePause();
+    			PauseInput(false); 
+			}
+			 
+		}
 
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
@@ -111,7 +116,7 @@ namespace StarterAssets
 		
 		private void OnApplicationFocus(bool hasFocus)
 		{
-            if (gameManager.isPaused) return; //keeps cursor unlocked in pause menu if window focus is lost
+            if (!pause) return;
 			SetCursorState(cursorLocked);
 		}
 

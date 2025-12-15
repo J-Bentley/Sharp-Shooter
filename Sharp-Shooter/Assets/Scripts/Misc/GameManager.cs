@@ -13,23 +13,19 @@ public class GameManager : MonoBehaviour {
     [SerializeField] GameObject optionsContainer;
     [SerializeField] GameObject controlsContainer;
     [SerializeField] int nextLevelDelay;
+    [SerializeField] StarterAssetsInputs starterAssetsInputs;
 
-    StarterAssetsInputs starterAssetsInputs;
     int enemiesRemaining = 0;
 
-    void Awake() {
-        starterAssetsInputs = FindFirstObjectByType<StarterAssetsInputs>();
-    }
-
-    void Update() {
-        HandlePausing();
-    }
-
-    void HandlePausing() {
-        if (!starterAssetsInputs) return;
-        if (starterAssetsInputs.pause && !isPaused) {
+    public void TogglePause()
+    {
+        if (isPaused)
+        {
+            Unpause();
+        }
+        else
+        {
             Pause();
-            starterAssetsInputs.PauseInput(false);
         }
     }
 
@@ -54,9 +50,9 @@ public class GameManager : MonoBehaviour {
     }
 
     void Pause() {
-        Time.timeScale = 0f;
         pauseContainer.SetActive(true);
         starterAssetsInputs.SetCursorState(false);
+        Time.timeScale = 0f;
         isPaused = true;
     }
 

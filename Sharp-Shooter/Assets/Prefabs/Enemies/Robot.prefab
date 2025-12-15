@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9f5bc88c4fc3046a0bcbde8b95d116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockYAxis: 0
 --- !u!1 &2348695849173419999
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,10 +307,10 @@ GameObject:
   - component: {fileID: 8458405708649295393}
   - component: {fileID: 2660579970182001555}
   - component: {fileID: 6314907743778411886}
+  - component: {fileID: 2427713361420467628}
   - component: {fileID: 8743017153508177410}
   - component: {fileID: 1702874071918380898}
   - component: {fileID: 7444753798272452116}
-  - component: {fileID: 2427713361420467628}
   m_Layer: 6
   m_Name: Robot
   m_TagString: Untagged
@@ -386,6 +387,19 @@ MonoBehaviour:
   droppedAmmoPickupPrefab: {fileID: 5247248352078418783, guid: 3c659ac570de28e4fb6fbd2d01fc0234, type: 3}
   healthbar: {fileID: 1906079976643758594}
   chanceOfAmmoDrop: 1
+--- !u!114 &2427713361420467628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2348695849173419999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e419e8cc335245749b5df7c89a3e5e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarCanvas: {fileID: 1065014391685835343}
 --- !u!95 &8743017153508177410
 Animator:
   serializedVersion: 7
@@ -555,19 +569,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2427713361420467628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2348695849173419999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e419e8cc335245749b5df7c89a3e5e3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBarCanvas: {fileID: 1065014391685835343}
 --- !u!1 &5751951921516791777
 GameObject:
   m_ObjectHideFlags: 0

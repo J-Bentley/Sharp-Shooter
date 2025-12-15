@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour {
     private Camera mainCamera;
+    [SerializeField] bool lockYAxis;
 
     void Start() {
         mainCamera = Camera.main;

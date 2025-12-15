@@ -42,19 +42,15 @@ public class Weapon : MonoBehaviour {
             // stops z-fighting
             Vector3 offsetPosition = hit.point + hit.normal * 0.001f; 
 
-
-            ParticleSystem enemyHit = Instantiate(enemyHitVFX, offsetPosition, normalizedRotation);
-            enemyHit.transform.SetParent(hit.transform, worldPositionStays: true);
-
-            ParticleSystem bulletHole = Instantiate(bulletHoleVFX, offsetPosition, normalizedRotation);
-            bulletHole.transform.SetParent(hit.transform, worldPositionStays: true);
             if (enemyHealth)
             {
-
+                ParticleSystem enemyHit = Instantiate(enemyHitVFX, offsetPosition, normalizedRotation);
+                enemyHit.transform.SetParent(hit.transform, worldPositionStays: true);
             } 
             else
             {
-
+                ParticleSystem bulletHole = Instantiate(bulletHoleVFX, offsetPosition, normalizedRotation);
+                bulletHole.transform.SetParent(hit.transform, worldPositionStays: true);
             }
         }
     }

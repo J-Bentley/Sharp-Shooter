@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  enemiesRemainingText: {fileID: 0}
   levelCompleteText: {fileID: 0}
   pauseContainer: {fileID: 0}
+  menuContainer: {fileID: 0}
   optionsContainer: {fileID: 0}
+  controlsContainer: {fileID: 0}
   nextLevelDelay: 5
+  starterAssetsInputs: {fileID: 0}
