@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] GameObject menuContainer;
     [SerializeField] GameObject optionsContainer;
     [SerializeField] GameObject controlsContainer;
+    [SerializeField] GameObject hudContainer;
     [SerializeField] int nextLevelDelay;
     [SerializeField] StarterAssetsInputs starterAssetsInputs;
 
@@ -50,16 +51,20 @@ public class GameManager : MonoBehaviour {
     }
 
     void Pause() {
+        hudContainer.SetActive(false);
         pauseContainer.SetActive(true);
         starterAssetsInputs.SetCursorState(false);
+        AudioListener.pause = true;
         Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void Unpause() {
-        Time.timeScale = 1f;
+        hudContainer.SetActive(true);
         pauseContainer.SetActive(false);
         starterAssetsInputs.SetCursorState(true);
+        AudioListener.pause = false;
+        Time.timeScale = 1f;
         isPaused = false;
     }
 

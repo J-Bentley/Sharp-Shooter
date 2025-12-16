@@ -10,6 +10,7 @@ public class ActiveWeapon : MonoBehaviour {
     [SerializeField] Camera weaponCamera;
     [SerializeField] GameObject zoomVignette;
     [SerializeField] TMP_Text ammoText;
+    [SerializeField] GameManager gameManager;
 
     WeaponSO CurrentWeaponSO;
     Weapon currentWeapon;
@@ -39,6 +40,8 @@ public class ActiveWeapon : MonoBehaviour {
     }
 
     void Update() {
+        if (gameManager.isPaused) return;
+
         HandleShoot();
         HandleZoom();
     }
@@ -73,42 +76,53 @@ public class ActiveWeapon : MonoBehaviour {
     void HandleZoom() {
         if (!CurrentWeaponSO.CanZoom) return;
 
-        if (starterAssetsInputs.zoom) {
+        if (starterAssetsInputs.zoom)
+        {
+            ZoomIn();
+        }
+        else
+        {
+            ZoomOut();
+        }
+    }
 
-            if (!isZooming)
-            {
-                // stores rot speed then scales according to the current rot speed
-                isZooming = true;
-                storedRotationSpeed = firstPersonController.RotationSpeed;
-                firstPersonController.MultiplyRotationSpeed(CurrentWeaponSO.ZoomRotationSpeedMultiplier);
-            }
+    void ZoomOut()
+    {
+        if (isZooming)
+        {
+            isZooming = false;
+
+            // Return FOV and rot speed when not zoomed in
+            playerFollowCamera.m_Lens.FieldOfView = defaultFOV;
+            weaponCamera.fieldOfView = defaultFOV;
+            firstPersonController.SetRotationSpeed(storedRotationSpeed);
 
             // Sniper handling
-            if (CurrentWeaponSO.name.Equals("Sniper")) {
-                currentWeapon.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
-                zoomVignette.SetActive(true);
-            }
-
-            // Set FOV and rot speed of weaponSO
-            weaponCamera.fieldOfView = CurrentWeaponSO.ZoomAmount;
-            playerFollowCamera.m_Lens.FieldOfView = CurrentWeaponSO.ZoomAmount;
-
+            zoomVignette.SetActive(false);
+            currentWeapon.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
         }
-        else {
-            if (isZooming)
-            {
-                isZooming = false;
-                
-                // Return FOV and rot speed when not zoomed in
-                playerFollowCamera.m_Lens.FieldOfView = defaultFOV;
-                weaponCamera.fieldOfView = defaultFOV;
-                firstPersonController.SetRotationSpeed(storedRotationSpeed);
+    }
 
-                // Sniper handling
-                zoomVignette.SetActive(false);
-                currentWeapon.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
-            }
+    void ZoomIn()
+    {
+        if (!isZooming)
+        {
+            // stores rot speed then scales according to the current rot speed
+            isZooming = true;
+            storedRotationSpeed = firstPersonController.RotationSpeed;
+            firstPersonController.MultiplyRotationSpeed(CurrentWeaponSO.ZoomRotationSpeedMultiplier);
         }
+
+        // Sniper handling
+        if (CurrentWeaponSO.name.Equals("Sniper"))
+        {
+            currentWeapon.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+            zoomVignette.SetActive(true);
+        }
+
+        // Set FOV and rot speed of weaponSO
+        weaponCamera.fieldOfView = CurrentWeaponSO.ZoomAmount;
+        playerFollowCamera.m_Lens.FieldOfView = CurrentWeaponSO.ZoomAmount;
     }
 
     public void SwitchWeapon(WeaponSO weaponSO) {
