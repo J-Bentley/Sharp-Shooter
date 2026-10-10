@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &5568394351353820657
 Transform:
@@ -126,6 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 1
   destroyedObjectPrefab: {fileID: 3788847382505310730, guid: 184e7ea2f9317b849bd58bcc2c5b476d, type: 3}
+  isExplodingBarrel: 0
+  explosionDelay: 0
 --- !u!54 &2162878561210144574
 Rigidbody:
   m_ObjectHideFlags: 0

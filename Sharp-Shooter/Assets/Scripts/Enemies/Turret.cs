@@ -35,22 +35,26 @@ public class Turret : MonoBehaviour {
 
     IEnumerator FireRoutine() {
         while (true) {
-            yield return new WaitForSeconds(fireRate);
 
-            // Check line of sight
-            Vector3 direction = playerTargetPoint.position - projectileSpawnPoint.position;
-            Ray ray = new Ray(projectileSpawnPoint.position, direction.normalized);
-            RaycastHit hit;
+            if (playerTargetPoint != null) {
 
-            if (Physics.Raycast(ray, out hit, direction.magnitude, lineOfSightMask)) {
-                if (hit.transform == playerTargetPoint || hit.collider.CompareTag("Player"))
-                {
-                    // Fire
-                    Projectile newProjectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity).GetComponent<Projectile>();
-                    newProjectile.transform.LookAt(playerTargetPoint);
-                    newProjectile.Init(damage);
-                    muzzleflash.Play();
-                    audioSource.Play();
+                yield return new WaitForSeconds(fireRate);
+
+                // Check line of sight
+                Vector3 direction = playerTargetPoint.position - projectileSpawnPoint.position;
+                Ray ray = new Ray(projectileSpawnPoint.position, direction.normalized);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, direction.magnitude, lineOfSightMask)) {
+                    if (hit.transform == playerTargetPoint || hit.collider.CompareTag("Player"))
+                    {
+                        // Fire
+                        Projectile newProjectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity).GetComponent<Projectile>();
+                        newProjectile.transform.LookAt(playerTargetPoint);
+                        newProjectile.Init(damage);
+                        muzzleflash.Play();
+                        audioSource.Play();
+                    }
                 }
             }
         }

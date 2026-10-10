@@ -49,7 +49,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &1940611576334443281
 Transform:
@@ -191,7 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
-  ammoAmount: 100
+  minAmmoAmount: 0
+  maxAmmoAmount: 0
 --- !u!82 &-616308128462733582
 AudioSource:
   m_ObjectHideFlags: 0
